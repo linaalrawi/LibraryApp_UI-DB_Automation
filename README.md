@@ -6,7 +6,7 @@
 
     ```properties
     # Connection String
-    library2.db.url=jdbc:mysql://GIVEN_IP:3306/library2
+    library2.db.url=jdbc:mysql://GIVEN_IP_ADDRESS:3306/library2
     # Database username
     library2.db.username=GIVEN_DB_USERNAME
     # Database password
@@ -14,7 +14,7 @@
     ```
 
     - Replace the placeholders with your actual database credentials:
-        - `GIVEN_DB_HOST`: Replace with the IP address of library app database.
+        - `GIVEN_IP_ADDRESS`: Replace with the IP address of library app database.
         - `GIVEN_DB_USERNAME`: Replace with given database username.
         - `GIVEN_DB_PASSWORD`: Replace with given database password.
 
