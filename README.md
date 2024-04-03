@@ -6,18 +6,17 @@
 
     ```properties
     # Connection String
-    # JDBC URL for connecting to the Oracle database
-    dbUrl=jdbc:mysql://your_own_dbip:3306/library2
+    library2.db.url=jdbc:mysql://GIVEN_IP:3306/library2
     # Database username
-    dbUsername=your_own_dbusername
+    library2.db.username=GIVEN_DB_USERNAME
     # Database password
-    dbPassword=your_own_dbpassword
+    library2.db.password=GIVEN_DB_PASSWORD
     ```
 
     - Replace the placeholders with your actual database credentials:
-        - `your_own_dbip`: Replace with the IP address or hostname of your Oracle database.
-        - `your_own_dbusername`: Replace with your Oracle database username.
-        - `your_own_dbpassword`: Replace with your Oracle database password.
+        - `GIVEN_DB_HOST`: Replace with the IP address of library app database.
+        - `GIVEN_DB_USERNAME`: Replace with given database username.
+        - `GIVEN_DB_PASSWORD`: Replace with given database password.
 
 3. Save the `configuration.properties` file.
 
