@@ -37,16 +37,6 @@ jobs:
           path: allure-results
           retention-days: 20
 
-      - name: Set up configuration properties
-        run: |
-          echo "browser=headless-chrome" >> configuration.properties
-          echo "library_url=https://library2.cydeo.com/login.html" >> configuration.properties
-          echo "librarian_username=librarian44@library" >> configuration.properties
-          echo "password=libraryUser" >> configuration.properties
-          echo "library2.db.url=jdbc:mysql://34.230.35.214:3306/library2" >> configuration.properties
-          echo "library2.db.username=library2_client" >> configuration.properties
-          echo "library2.db.password=6s2LQQTjBcGFfDhY" >> configuration.properties
-
       - name: Get Allure history
         uses: actions/checkout@v2
         if: always()
