@@ -1,5 +1,6 @@
 package com.library.pages;
 
+import com.library.utilities.BrowserUtils;
 import com.library.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -33,6 +34,7 @@ public class DashBoardPage extends BasePage{
      * @return The count of borrowed books.
      */
     public String getBorrowedBooksCount(){
+        BrowserUtils.waitFor(2);
         return borrowedBooksCount.getText();
     }
 
@@ -42,6 +44,7 @@ public class DashBoardPage extends BasePage{
      * @return The count of users.
      */
     public String getUsersCount(){
+        BrowserUtils.waitFor(2);
         return usersCount.getText();
     }
 
@@ -51,6 +54,7 @@ public class DashBoardPage extends BasePage{
      * @return The count of books.
      */
     public String getBooksCount(){
+        BrowserUtils.waitFor(2);
         return booksCount.getText();
     }
 }
