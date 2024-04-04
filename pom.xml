@@ -71,13 +71,6 @@
             <version>4.19.1</version>
         </dependency>
 
-        <!-- JavaFaker -->
-        <dependency>
-            <groupId>com.github.javafaker</groupId>
-            <artifactId>javafaker</artifactId>
-            <version>1.0.2</version>
-        </dependency>
-
         <!-- Cucumber JUnit -->
         <dependency>
             <groupId>io.cucumber</groupId>
