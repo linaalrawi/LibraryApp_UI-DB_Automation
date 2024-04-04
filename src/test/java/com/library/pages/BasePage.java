@@ -1,5 +1,6 @@
 package com.library.pages;
 
+import com.library.utilities.BrowserUtils;
 import com.library.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -19,8 +20,6 @@ public abstract class BasePage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(css = "a.navbar-brand")
-    private WebElement logo;
 
     @FindBy(xpath = "//a[@id='navbarDropdown']//span")
     private WebElement userNameField;
@@ -43,41 +42,20 @@ public abstract class BasePage {
     }
 
     /**
-     * Logs out of the application.
-     */
-    public void logOut(){
-        navBarDropdown.click();
-        logOutButton.click();
-    }
-
-    /**
      * Retrieves the username displayed on the page.
      *
      * @return The username displayed on the page.
      */
     public String getUserName(){
+        BrowserUtils.waitFor(2);
         return userNameField.getText();
     }
 
     /**
-     * Retrieves the text of the logo displayed on the page.
-     *
-     * @return The text of the logo displayed on the page.
+     * Logs out of the application.
      */
-    public String getLogoText(){
-        return logo.getText();
-    }
-
-    /**
-     * Retrieves the text of the specified module displayed on the page.
-     *
-     * @param moduleName The name of the module to retrieve the text for.
-     * @return The text of the specified module displayed on the page.
-     */
-    public String getModuleText(String moduleName){
-        WebElement module = Driver.getDriver().findElement(
-                By.xpath("//span[@class='title'][.='"+moduleName+"']"));
-
-        return module.getText();
+    public void logOut(){
+        navBarDropdown.click();
+        logOutButton.click();
     }
 }

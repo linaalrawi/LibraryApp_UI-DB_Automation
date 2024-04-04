@@ -1,5 +1,6 @@
 package com.library.pages;
 
+import com.library.utilities.BrowserUtils;
 import com.library.utilities.ConfigurationReader;
 import com.library.utilities.Driver;
 import org.openqa.selenium.WebElement;

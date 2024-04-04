@@ -1,8 +1,8 @@
 package com.library.pages;
 
 import com.library.utilities.Driver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 /**
@@ -10,6 +10,15 @@ import org.openqa.selenium.support.PageFactory;
  * It provides methods to interact with elements on the Dashboard page.
  */
 public class DashBoardPage extends BasePage{
+
+    @FindBy(id = "borrowed_books")
+    private WebElement borrowedBooksCount;
+
+    @FindBy(id = "user_count")
+    private WebElement usersCount;
+
+    @FindBy(id = "book_count")
+    private WebElement booksCount;
 
     /**
      * Initializes the elements of the DashBoardPage class using PageFactory.
@@ -19,26 +28,29 @@ public class DashBoardPage extends BasePage{
     }
 
     /**
-     * Retrieves the count from the specified field on the Dashboard page.
+     * Retrieves the count of borrowed books displayed on the Dashboard page.
      *
-     * @param fieldName The name of the field to retrieve the count from.
-     * @return The count displayed in the specified field.
+     * @return The count of borrowed books.
      */
-    public String getFieldCount(String fieldName){
-        WebElement countField = Driver.getDriver().findElement(
-                By.xpath("//h6[.='"+fieldName+"']/..//h2"));
-        return countField.getText();
+    public String getBorrowedBooksCount(){
+        return borrowedBooksCount.getText();
     }
 
     /**
-     * Retrieves the text from the specified field on the Dashboard page.
+     * Retrieves the count of users displayed on the Dashboard page.
      *
-     * @param fieldName The name of the field to retrieve the text from.
-     * @return The text displayed in the specified field.
+     * @return The count of users.
      */
-    public String getFieldText(String fieldName){
-        WebElement textField = Driver.getDriver().findElement(
-                By.xpath("//h6[.='"+fieldName+"']"));
-        return textField.getText();
+    public String getUsersCount(){
+        return usersCount.getText();
+    }
+
+    /**
+     * Retrieves the count of books displayed on the Dashboard page.
+     *
+     * @return The count of books.
+     */
+    public String getBooksCount(){
+        return booksCount.getText();
     }
 }

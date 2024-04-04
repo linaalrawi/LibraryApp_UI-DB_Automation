@@ -13,7 +13,7 @@ Feature: Login Functionality
     Then the username should be same with database
     Examples:
       | email               | password |
-      | librarian55@library | libraryUser |
-      | librarian56@library | libraryUser |
-      | student5@library    | libraryUser |
-      | student6@library    | libraryUser |
+      | librarian32@library | libraryUser |
+      | librarian41@library | libraryUser |
+      | student4@library    | libraryUser |
+      | student3@library    | libraryUser |
