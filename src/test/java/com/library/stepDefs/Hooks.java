@@ -18,7 +18,7 @@ public class Hooks {
     @Before
     public void setupMethod() {
         // Open the browser and navigate to the specified URL before each scenario
-        Driver.getDriver().get(ConfigurationReader.getProperty("https://library2.cydeo.com/login.html"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("library_url"));
     }
 
     /**
