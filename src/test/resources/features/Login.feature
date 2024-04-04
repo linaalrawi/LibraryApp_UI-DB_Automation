@@ -14,6 +14,6 @@ Feature: Login Functionality
     Examples:
       | email               | password |
       | librarian32@library | libraryUser |
-      | librarian46@library | libraryUser |
+      | librarian41@library | libraryUser |
       | student4@library    | libraryUser |
       | student3@library    | libraryUser |
