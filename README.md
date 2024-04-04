@@ -1,3 +1,5 @@
+Allure Report Link : https://emiryazicii.github.io/LibraryApp_UI-DB_Automation/
+
 ### Setting up the Database Connection
 
 1. Create a `configuration.properties` file in your project's directory.
