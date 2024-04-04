@@ -2,4 +2,3 @@
 /.idea/
 *.iml
 /allure-results/
-configuration.properties
