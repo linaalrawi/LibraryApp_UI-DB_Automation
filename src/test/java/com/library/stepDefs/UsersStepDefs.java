@@ -22,6 +22,7 @@ public class UsersStepDefs {
 
     @When("the user clicks Edit User button")
     public void the_user_clicks_edit_user_button() {
+        usersPage.clickNextButtonActiveUsers();
         usersPage.clickEditUserButtonByEmail(ConfigurationReader.getProperty("librarian_username"));
         email = ConfigurationReader.getProperty("librarian_username");
     }
@@ -52,6 +53,7 @@ public class UsersStepDefs {
     @Then("the user changes current user status {string} to {string}")
     public void the_user_changes_current_user_status_to(String oldStatus, String newStatus) {
         usersPage.changeStatusUserManagement(newStatus,oldStatus);
+        usersPage.clickLastButtonInactiveUsers();
         usersPage.clickEditUserButtonByUserName(usersPage.getUserName());
         usersPage.changeStatusEditUser(oldStatus,newStatus);
         usersPage.clickSaveChangesButton();
