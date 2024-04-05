@@ -16,8 +16,8 @@ public class LoginPage {
     /**
      * Initializes the elements of the LoginPage class using PageFactory.
      */
-    public LoginPage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+    public LoginPage() {
+        PageFactory.initElements(Driver.getDriver(), this);
     }
 
     @FindBy(id = "inputEmail")
@@ -29,13 +29,26 @@ public class LoginPage {
     @FindBy(css = "button[type='submit']")
     private WebElement signInButton;
 
+    @FindBy(xpath = "//img")
+    private WebElement libraryLogo;
+
+    @FindBy(xpath = "//p")
+    private WebElement copyRightYear;
+
+    @FindBy(xpath = "//label[@for='inputEmail']")
+    private WebElement emailInputBoxLabel;
+
+    @FindBy(xpath = "//label[@for='inputPassword']")
+    private WebElement passwordInputBoxLabel;
+
     /**
      * Logs in to the application with the provided username and password.
      *
      * @param username The username to log in with.
      * @param password The password to log in with.
      */
-    public void login(String username, String password){
+    public void login(String username, String password) {
+        BrowserUtils.waitFor(1);
         emailInputBox.sendKeys(username);
         passwordInputBox.sendKeys(password);
         signInButton.click();
@@ -47,9 +60,60 @@ public class LoginPage {
      *
      * @param userType The type of user to log in as.
      */
-    public void login(String userType){
-        emailInputBox.sendKeys(ConfigurationReader.getProperty(userType+"_username"));
+    public void login(String userType) {
+        BrowserUtils.waitFor(1);
+        emailInputBox.sendKeys(ConfigurationReader.getProperty(userType + "_username"));
         passwordInputBox.sendKeys(ConfigurationReader.getProperty("password"));
         signInButton.click();
+    }
+
+    /**
+     * Checks if the library logo is displayed on the login page.
+     *
+     * @return true if the library logo is displayed, false otherwise.
+     */
+    public boolean isLogoDisplayed() {
+        BrowserUtils.waitFor(1);
+        return libraryLogo.isDisplayed();
+    }
+
+    /**
+     * Retrieves the copyright year displayed on the login page.
+     *
+     * @return The copyright year displayed on the login page.
+     */
+    public String getCopyRightYear() {
+        BrowserUtils.waitFor(1);
+        return copyRightYear.getText().substring(2);
+    }
+
+    /**
+     * Retrieves the text displayed on the sign-in button.
+     *
+     * @return The text displayed on the sign-in button.
+     */
+    public String getSignInButtonText() {
+        BrowserUtils.waitFor(1);
+        return signInButton.getText();
+    }
+
+    /**
+     * Retrieves the label text for the email input box.
+     *
+     * @return The label text for the email input box.
+     */
+    public String getEmailInputBoxText() {
+        BrowserUtils.waitFor(1);
+        return emailInputBoxLabel.getText();
+    }
+
+    /**
+     * Retrieves the label text for the password input box.
+     *
+     * @return The label text for the password input box.
+     */
+    public String getPasswordInputBoxText() {
+        BrowserUtils.waitFor(1);
+        return passwordInputBoxLabel.getText();
     }
 }
