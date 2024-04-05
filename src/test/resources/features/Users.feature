@@ -1,5 +1,5 @@
 Feature: User management
-  @wip @db
+  @db
   Scenario: Updating user status as librarian should change current user status in DB
     Given the user logged in as "librarian"
     And the user navigates to "Users" page

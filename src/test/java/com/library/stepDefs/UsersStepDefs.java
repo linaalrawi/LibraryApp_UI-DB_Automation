@@ -1,7 +1,6 @@
 package com.library.stepDefs;
 
 import com.library.pages.UsersPage;
-import com.library.utilities.ConfigurationReader;
 import com.library.utilities.DataBaseUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,6 +12,7 @@ public class UsersStepDefs {
     UsersPage usersPage = new UsersPage();
     String expectedStatus;
     String actualStatus;
+    String actualMessage;
     String email;
 
     @Given("the user navigates to {string} page")
@@ -22,14 +22,14 @@ public class UsersStepDefs {
 
     @When("the user clicks Edit User button")
     public void the_user_clicks_edit_user_button() {
-        usersPage.clickNextButtonActiveUsers();
-        usersPage.clickEditUserButtonByEmail(ConfigurationReader.getProperty("librarian_username"));
-        email = ConfigurationReader.getProperty("librarian_username");
+        usersPage.searchUser(usersPage.getUserName());
+        email = usersPage.getEmail();
+        usersPage.clickEditUserButton();
     }
 
     @When("the user changes user status {string} to {string}")
     public void the_user_changes_user_status_to(String oldStatus, String newStatus) {
-        usersPage.changeStatusEditUser(oldStatus,newStatus);
+        usersPage.changeStatus(oldStatus,newStatus);
         expectedStatus = newStatus;
     }
 
@@ -40,7 +40,8 @@ public class UsersStepDefs {
 
     @Then("{string} message should appear")
     public void message_should_appear(String expectedMessage) {
-        Assert.assertEquals(expectedMessage,usersPage.getMessageText());
+        actualMessage = usersPage.getMessageText();
+        Assert.assertEquals(expectedMessage,actualMessage);
     }
 
     @Then("the users should see same status for related user in database")
@@ -52,10 +53,10 @@ public class UsersStepDefs {
 
     @Then("the user changes current user status {string} to {string}")
     public void the_user_changes_current_user_status_to(String oldStatus, String newStatus) {
-        usersPage.changeStatusUserManagement(newStatus,oldStatus);
-        usersPage.clickLastButtonInactiveUsers();
-        usersPage.clickEditUserButtonByUserName(usersPage.getUserName());
-        usersPage.changeStatusEditUser(oldStatus,newStatus);
+        usersPage.changeStatusOnUserManagement(newStatus,oldStatus);
+        usersPage.searchUser(usersPage.getUserName());
+        usersPage.clickEditUserButton();
+        usersPage.changeStatus(oldStatus,newStatus);
         usersPage.clickSaveChangesButton();
     }
 }
