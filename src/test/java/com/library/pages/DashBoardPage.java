@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
  * This class represents the Dashboard page of the application.
  * It provides methods to interact with elements on the Dashboard page.
  */
-public class DashBoardPage extends BasePage{
+public class DashBoardPage extends BasePage {
 
     @FindBy(id = "borrowed_books")
     private WebElement borrowedBooksCount;
@@ -21,11 +21,20 @@ public class DashBoardPage extends BasePage{
     @FindBy(id = "book_count")
     private WebElement booksCount;
 
+    @FindBy(xpath = "//h6[.='Books']")
+    private WebElement booksHeader;
+
+    @FindBy(xpath = "//h6[.='Users']")
+    private WebElement usersHeader;
+
+    @FindBy(xpath = "//h6[.='Borrowed Books']")
+    private WebElement borrowedBooksHeader;
+
     /**
      * Initializes the elements of the DashBoardPage class using PageFactory.
      */
-    public DashBoardPage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+    public DashBoardPage() {
+        PageFactory.initElements(Driver.getDriver(), this);
     }
 
     /**
@@ -33,8 +42,8 @@ public class DashBoardPage extends BasePage{
      *
      * @return The count of borrowed books.
      */
-    public String getBorrowedBooksCount(){
-        BrowserUtils.waitFor(2);
+    public String getBorrowedBooksCount() {
+        BrowserUtils.waitFor(1);
         return borrowedBooksCount.getText();
     }
 
@@ -43,8 +52,8 @@ public class DashBoardPage extends BasePage{
      *
      * @return The count of users.
      */
-    public String getUsersCount(){
-        BrowserUtils.waitFor(2);
+    public String getUsersCount() {
+        BrowserUtils.waitFor(1);
         return usersCount.getText();
     }
 
@@ -53,8 +62,38 @@ public class DashBoardPage extends BasePage{
      *
      * @return The count of books.
      */
-    public String getBooksCount(){
-        BrowserUtils.waitFor(2);
+    public String getBooksCount() {
+        BrowserUtils.waitFor(1);
         return booksCount.getText();
+    }
+
+    /**
+     * Retrieves the text of the header for books displayed on the Dashboard page.
+     *
+     * @return The text of the books header.
+     */
+    public String getBooksHeaderText() {
+        BrowserUtils.waitFor(1);
+        return booksHeader.getText();
+    }
+
+    /**
+     * Retrieves the text of the header for users displayed on the Dashboard page.
+     *
+     * @return The text of the users header.
+     */
+    public String getUsersHeaderText() {
+        BrowserUtils.waitFor(1);
+        return usersHeader.getText();
+    }
+
+    /**
+     * Retrieves the text of the header for borrowed books displayed on the Dashboard page.
+     *
+     * @return The text of the borrowed books header.
+     */
+    public String getBorrowedBooksHeaderText() {
+        BrowserUtils.waitFor(1);
+        return borrowedBooksHeader.getText();
     }
 }
