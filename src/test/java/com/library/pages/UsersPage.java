@@ -91,6 +91,9 @@ public class UsersPage extends BasePage {
         editUserButton.click();
     }
 
+    /**
+     * Clicks the "Close" button.
+     */
     public void clickCloseButton(){
         BrowserUtils.waitFor(1);
         closeButton.click();
@@ -120,12 +123,22 @@ public class UsersPage extends BasePage {
         select.selectByValue(newStatus);
     }
 
+    /**
+     * Changes the user group on the user management page.
+     *
+     * @param groupName The name of the group to assign to the user.
+     */
     public void changeUserGroupOnUserManagement(String groupName) {
         BrowserUtils.waitFor(1);
         Select select = new Select(userGroupsDropdownOnUserManagement);
         select.selectByValue(groupName);
     }
 
+    /**
+     * Changes the user group.
+     *
+     * @param groupName The name of the group to assign to the user.
+     */
     public void changeUserGroup(String groupName) {
         BrowserUtils.waitFor(1);
         Select select = new Select(userGroupDropdown);
@@ -160,13 +173,13 @@ public class UsersPage extends BasePage {
         searchBox.sendKeys(searchText);
     }
 
-
+    /**
+     * Clicks the "Add User" button.
+     */
     public void clickAddUserButton() {
         BrowserUtils.waitFor(1);
         addUserButton.click();
     }
-
-
 
     /**
      * Retrieves the text of the email cell on the page.
@@ -178,55 +191,103 @@ public class UsersPage extends BasePage {
         return emailCell.getText();
     }
 
+    /**
+     * Retrieves the text of the user group cell on the page.
+     *
+     * @return The text of the user group cell.
+     */
     public String getUserGroup() {
         BrowserUtils.waitFor(1);
         return groupCell.getText();
     }
 
+    /**
+     * Retrieves the text of the full name cell on the page.
+     *
+     * @return The text of the full name cell.
+     */
     public String getFullName() {
         BrowserUtils.waitFor(1);
         return fullNameCell.getText();
     }
 
+    /**
+     * Retrieves the text of the status cell on the page.
+     *
+     * @return The text of the status cell.
+     */
     public String getStatus() {
         BrowserUtils.waitFor(1);
         return statusCell.getText();
     }
 
+    /**
+     * Retrieves the text of the user ID cell on the page.
+     *
+     * @return The text of the user ID cell.
+     */
     public String getUserId() {
         BrowserUtils.waitFor(1);
         return userIdCell.getText();
     }
 
+    /**
+     * Enters full name into the full name input box.
+     *
+     * @param fullName The full name to enter.
+     */
     public void enterFullName(String fullName) {
         BrowserUtils.waitFor(1);
         fullNameInputBox.sendKeys(fullName);
     }
 
+    /**
+     * Enters password into the password input box.
+     *
+     * @param password The password to enter.
+     */
     public void enterPassword(String password) {
         BrowserUtils.waitFor(1);
         passwordInputBox.sendKeys(password);
     }
 
+    /**
+     * Enters email into the email input box.
+     *
+     * @param email The email to enter.
+     */
     public void enterEmail(String email) {
         BrowserUtils.waitFor(1);
         emailInputBox.sendKeys(email);
     }
 
+    /**
+     * Enters start date into the start date input box.
+     *
+     * @param startDate The start date to enter.
+     */
     public void enterStartDate(String startDate) {
         BrowserUtils.waitFor(1);
         startDateInputBox.sendKeys(startDate);
     }
 
+    /**
+     * Enters end date into the end date input box.
+     *
+     * @param endDate The end date to enter.
+     */
     public void enterEndDate(String endDate) {
         BrowserUtils.waitFor(1);
         endDateInputBox.sendKeys(endDate);
     }
 
+    /**
+     * Enters address into the address input box.
+     *
+     * @param address The address to enter.
+     */
     public void enterAddress(String address) {
         BrowserUtils.waitFor(1);
         addressInputBox.sendKeys(address);
     }
-
-
 }

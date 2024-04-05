@@ -69,7 +69,7 @@ public abstract class BasePage {
      * @return The username displayed on the page.
      */
     public String getUserName(){
-        BrowserUtils.waitFor(1);
+        BrowserUtils.waitFor(2);
         return userNameField.getText();
     }
 
