@@ -63,7 +63,7 @@ public class LoginPage {
     public void login(String userType) {
         BrowserUtils.waitFor(1);
         emailInputBox.sendKeys(ConfigurationReader.getProperty(userType + "_username"));
-        passwordInputBox.sendKeys(ConfigurationReader.getProperty("password"));
+        passwordInputBox.sendKeys(ConfigurationReader.getProperty("librarian_password"));
         signInButton.click();
     }
 
