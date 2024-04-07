@@ -38,14 +38,14 @@ public class UsersStepDefs {
         usersPage.clickSaveChangesButton();
     }
 
-    @Then("{string} message should appear")
-    public void message_should_appear(String expectedMessage) {
+    @Then("the user verifies that the {string} message is displayed")
+    public void the_user_verifies_that_the_message_is_displayed(String expectedMessage) {
         actualMessage = usersPage.getMessageText();
         Assert.assertEquals(expectedMessage,actualMessage);
     }
 
-    @Then("the users should see same status for related user in database")
-    public void the_users_should_see_same_status_for_related_user_in_database() {
+    @Then("the user verifies that status information matches with database")
+    public void the_user_verifies_that_status_information_matches_with_database() {
         DataBaseUtils.runQuery("select status from users where email='"+email+"'");
         actualStatus = DataBaseUtils.getFirstRowFirstColumn();
         Assert.assertEquals(expectedStatus,actualStatus);
