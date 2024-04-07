@@ -1,6 +1,6 @@
 Feature: As a librarian, I want to know borrowed books number
 
-  @ui @db
+  @ui @db @wip
   Scenario:Verify the total amount of borrowed books
     Given the user logged in as "librarian"
     When the user gets borrowed books number
