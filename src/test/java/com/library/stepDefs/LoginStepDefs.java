@@ -2,6 +2,7 @@ package com.library.stepDefs;
 
 import com.library.pages.DashBoardPage;
 import com.library.pages.LoginPage;
+import com.library.utilities.BrowserUtils;
 import com.library.utilities.DataBaseUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -29,6 +30,7 @@ public class LoginStepDefs {
 
     @Then("the user verifies that the username matches with database")
     public void the_user_verifies_that_the_username_matches_with_database() {
+        BrowserUtils.waitFor(3);
         DataBaseUtils.runQuery("select full_name from users where email='"+email+"'");
         expectedUserName = DataBaseUtils.getFirstRowFirstColumn();
         Assert.assertEquals(expectedUserName,actualUserName);
