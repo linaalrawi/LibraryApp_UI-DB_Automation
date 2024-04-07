@@ -2,7 +2,6 @@ package com.library.stepDefs;
 
 import com.library.pages.DashBoardPage;
 import com.library.pages.LoginPage;
-import com.library.utilities.BrowserUtils;
 import com.library.utilities.DataBaseUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -34,8 +33,6 @@ public class DashBoardStepDefs {
 
     @Then("the user verifies that the information matches with database")
     public void the_user_verifies_that_the_information_matches_with_database() {
-
-        BrowserUtils.waitFor(3);
         DataBaseUtils.runQuery("select count(*) from books");
         expectedBooksCount = DataBaseUtils.getFirstRowFirstColumn();
         Assert.assertEquals(expectedBooksCount,actualBooksCount);

@@ -2,7 +2,7 @@ Feature: Login Functionality
 
   @ui @db
   Scenario: Login with valid credentials
-    Given the user logged in "librarian11@library" and "libraryUser"
+    Given the user logged in "librarian11@library" and "donttrytochangethis"
     When the user gets username from user fields
     Then the user verifies that the username matches with database
 
@@ -13,7 +13,7 @@ Feature: Login Functionality
     Then the user verifies that the username matches with database
     Examples:
       | email               | password    |
-      | librarian13@library | libraryUser |
+      | librarian21@library | libraryUser |
       | librarian23@library | libraryUser |
-      | student14@library   | libraryUser |
-      | student31@library   | libraryUser |
+      | student16@library   | libraryUser |
+      | student17@library   | libraryUser |
