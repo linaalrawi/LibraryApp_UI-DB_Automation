@@ -7,6 +7,6 @@ Feature: User management
     When the user clicks Edit User button
     And the user changes user status "ACTIVE" to "INACTIVE"
     And the user clicks save changes button
-    Then "The user updated." message should appear
-    And the users should see same status for related user in database
+    Then the user verifies that the "The user updated." message is displayed
+    And the user verifies that status information matches with database
     And the user changes current user status "INACTIVE" to "ACTIVE"

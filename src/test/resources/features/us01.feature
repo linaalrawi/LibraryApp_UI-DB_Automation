@@ -1,16 +1,14 @@
 Feature: As a data consumer, I want the user information are stored in mySql DB correctly in users table.
 
   @db
-  Scenario: verify users has unique IDs
-    When Execute query to get all IDs from users
-    Then verify all users has unique ID
-
+  Scenario:Verify that users have unique IDs
+    When the user executes query to get all IDs from users
+    Then the user verifies that all users have unique IDs
 
   @db
-  Scenario: verify users table columns
-    When Execute query to get all columns
-    Then verify the below columns are listed in result
-
+  Scenario:Verify users table columns
+    When the user executes query to get all columns
+    Then the user verifies the below columns are listed in result
       | id            |
       | full_name     |
       | email         |

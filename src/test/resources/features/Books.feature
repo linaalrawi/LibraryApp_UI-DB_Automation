@@ -5,7 +5,7 @@ Feature: Book Category
     Given the user logged in as "librarian"
     When the user navigates to "Books" page
     And the user gets all book categories in webpage
-    Then user should be able to see following categories
+    Then the user should be able to see following categories
       | Action and Adventure    |
       | Anthology               |
       | Classic                 |
@@ -26,15 +26,17 @@ Feature: Book Category
       | Essay                   |
       | Memoir                  |
       | Poetry                  |
+
   @ui @db
   Scenario: verify book categories with DB
     Given the user logged in as "librarian"
     When the user navigates to "Books" page
     And the user gets all book categories in webpage
-    Then verify book categories must match book categories table from db
+    Then the user verifies that book categories match with book categories table from db
+
   @ui @db
   Scenario: Verify book information with db
     Given the user logged in as "librarian"
     And the user navigates to "Books" page
-    When I open book "Agile Testing"
-    Then book information must match the database for "Agile Testing"
+    When the user searches for "Agile Testing" book
+    Then the user verifies that book information matches with database for "Agile Testing"

@@ -1,8 +1,8 @@
 Feature: As a data consumer, I want UI and DB book categories are match.
 
   @ui @db
-  Scenario: verify book categories with DB
-    Given the user "librarian" on the home page
+  Scenario:Verify book categories with DB
+    Given the user logged in as "librarian"
     When the user navigates to "Books" page
-    And the user clicks book categories
-    Then verify book categories must match book_categories table from db
+    And the user gets all book categories in webpage
+    Then the user verifies that book categories match with book categories table from db

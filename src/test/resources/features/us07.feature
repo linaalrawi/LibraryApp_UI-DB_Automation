@@ -3,9 +3,9 @@ Feature: Books module
 
   @ui @db
   Scenario: Student borrow new book
-    Given the user "student" on the home page
+    Given the user logged in as "student"
     And the user navigates to "Books" page
     And the user searches for "Self Confidence" book
     When the user clicks Borrow Book
-    Then verify that book is shown in "Borrowing Books" page
-    And  verify logged student has same book in database
+    Then the user verifies that book is shown in "Borrowing Books" page
+    And the user verifies that student has same book in database

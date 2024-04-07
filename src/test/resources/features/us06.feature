@@ -2,18 +2,18 @@ Feature: Books module
   As a librarian, I should be able to add new book into library
 
   @ui @db
-  Scenario Outline: Verify added book is matching with DB
-    Given the user "librarian" on the home page
+  Scenario Outline:Verify added book is matching with DB
+    Given the user logged in as "librarian"
     And the user navigates to "Books" page
-    When the librarian click to add book
-    And the librarian enter book name "<Book Name>"
-    When the librarian enter ISBN "<ISBN>"
-    And the librarian enter year "<Year>"
-    When the librarian enter author "<Author>"
-    And the librarian choose the book category "<Book Category>"
-    And the librarian click to save changes
-    Then verify "The book has been created" message is displayed
-    And verify "<Book Name>" information must match with DB
+    When the user clicks to add book
+    And the user enters book name "<Book Name>"
+    When the user enters ISBN "<ISBN>"
+    And the user enters year "<Year>"
+    When the user enters author "<Author>"
+    And the user chooses the book category "<Book Category>"
+    And the user clicks to save changes
+    Then the user verifies that "The book has been created" message is displayed
+    And the user verifies that "<Book Name>" information matches with DB
     Examples:
       | Book Name              | ISBN     | Year | Author      | Book Category   |
       | A Night In Honolulu    | 10123456 | 2002 | Emir Yazici | Romance         |
