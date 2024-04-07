@@ -15,7 +15,7 @@ public class Hooks {
     /**
      * Method to execute before each scenario.
      */
-    @Before
+    @Before("@ui")
     public void setupMethod() {
         // Open the browser and navigate to the specified URL before each scenario
         Driver.getDriver().get(ConfigurationReader.getProperty("library_url"));
@@ -26,7 +26,7 @@ public class Hooks {
      *
      * @param scenario The scenario object representing the current scenario.
      */
-    @After
+    @After("@ui")
     public void tearDown(Scenario scenario) {
         // Check if the scenario has failed
         if (scenario.isFailed()) {

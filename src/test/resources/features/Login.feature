@@ -1,16 +1,16 @@
 Feature: Login Functionality
 
-  @db
+  @ui @db
   Scenario: Login with valid credentials
-    Given the user logged in  "librarian12@library" and "libraryUser"
-    When user gets username  from user fields
-    Then the username should be same with database
+    Given the user logged in "librarian12@library" and "libraryUser"
+    When the user gets username from user fields
+    Then the user verifies that the username matches with database
 
-  @db
+  @ui @db
   Scenario Outline: Login with valid credentials <email>
-    Given the user logged in  "<email>" and "<password>"
-    When user gets username  from user fields
-    Then the username should be same with database
+    Given the user logged in "<email>" and "<password>"
+    When the user gets username from user fields
+    Then the user verifies that the username matches with database
     Examples:
       | email               | password    |
       | librarian12@library | libraryUser |

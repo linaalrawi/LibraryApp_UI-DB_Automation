@@ -290,4 +290,52 @@ public class UsersPage extends BasePage {
         BrowserUtils.waitFor(1);
         addressInputBox.sendKeys(address);
     }
+
+    /**
+     * Clears the text from the full name input box.
+     */
+    public void deleteFullName(){
+        BrowserUtils.waitFor(1);
+        fullNameInputBox.clear();
+    }
+
+    /**
+     * Clears the text from the password input box.
+     */
+    public void deletePassword(){
+        BrowserUtils.waitFor(1);
+        passwordInputBox.clear();
+    }
+
+    /**
+     * Clears the text from the email input box.
+     */
+    public void deleteEmail(){
+        BrowserUtils.waitFor(1);
+        emailInputBox.clear();
+    }
+
+    /**
+     * Clears the text from the start date input box.
+     */
+    public void deleteStartDate(){
+        BrowserUtils.waitFor(1);
+        startDateInputBox.clear();
+    }
+
+    /**
+     * Clears the text from the end date input box.
+     */
+    public void deleteEndDate(){
+        BrowserUtils.waitFor(1);
+        endDateInputBox.clear();
+    }
+
+    /**
+     * Clears the text from the address input box.
+     */
+    public void deleteAddress(){
+        BrowserUtils.waitFor(1);
+        addressInputBox.clear();
+    }
 }

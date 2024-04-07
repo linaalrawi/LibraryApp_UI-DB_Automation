@@ -16,19 +16,19 @@ public class LoginStepDefs {
     String expectedUserName;
     String email;
 
-    @Given("the user logged in  {string} and {string}")
+    @Given("the user logged in {string} and {string}")
     public void the_user_logged_in_and(String email, String password) {
         loginPage.login(email, password);
         this.email = email;
     }
 
-    @When("user gets username  from user fields")
-    public void user_gets_username_from_user_fields() {
+    @When("the user gets username from user fields")
+    public void the_user_gets_username_from_user_fields() {
         actualUserName = dashBoardPage.getUserName();
     }
 
-    @Then("the username should be same with database")
-    public void the_username_should_be_same_with_database() {
+    @Then("the user verifies that the username matches with database")
+    public void the_user_verifies_that_the_username_matches_with_database() {
         DataBaseUtils.runQuery("select full_name from users where email='"+email+"'");
         expectedUserName = DataBaseUtils.getFirstRowFirstColumn();
         Assert.assertEquals(expectedUserName,actualUserName);

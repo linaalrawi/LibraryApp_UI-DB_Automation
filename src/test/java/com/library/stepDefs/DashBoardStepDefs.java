@@ -24,15 +24,15 @@ public class DashBoardStepDefs {
         loginPage.login(userType);
     }
 
-    @When("user gets all information from modules")
-    public void user_gets_all_information_from_modules() {
+    @When("the user gets all information from modules")
+    public void the_user_gets_all_information_from_modules() {
         actualUsersCount = dashBoardPage.getUsersCount();
         actualBorrowedBooksCount = dashBoardPage.getBorrowedBooksCount();
         actualBooksCount = dashBoardPage.getBooksCount();
     }
 
-    @Then("the information should be same with database")
-    public void the_information_should_be_same_with_database() {
+    @Then("the user verifies that the information matches with database")
+    public void the_user_verifies_that_the_information_matches_with_database() {
         DataBaseUtils.runQuery("select count(*) from books");
         expectedBooksCount = DataBaseUtils.getFirstRowFirstColumn();
         Assert.assertEquals(expectedBooksCount,actualBooksCount);
@@ -44,5 +44,15 @@ public class DashBoardStepDefs {
         DataBaseUtils.runQuery("select count(*) from book_borrow where is_returned=0");
         expectedBorrowedBooksCount = DataBaseUtils.getFirstRowFirstColumn();
         Assert.assertEquals(expectedBorrowedBooksCount,actualBorrowedBooksCount);
+    }
+
+    @When("the user gets borrowed books number")
+    public void the_user_gets_borrowed_books_number() {
+
+    }
+
+    @Then("the user verifies that the borrowed books number matches with DB")
+    public void the_user_verifies_that_the_borrowed_books_number_matches_with_db() {
+
     }
 }
