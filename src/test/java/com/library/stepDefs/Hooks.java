@@ -48,6 +48,7 @@ public class Hooks {
     public void setupDB() {
         // Establish a connection to the database before scenarios tagged with "@db"
         DataBaseUtils.createConnection();
+
     }
 
     /**
