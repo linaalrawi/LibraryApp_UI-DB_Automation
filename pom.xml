@@ -35,11 +35,11 @@
                 <version>3.2.5</version>
                 <configuration>
                     <!-- Configure test execution -->
-                    <parallel>methods</parallel>
-                    <threadCount>8</threadCount>
-                    <perCoreThreadCount>false</perCoreThreadCount>
+                    <!--<parallel>methods</parallel>-->
+                    <!--<threadCount>8</threadCount>-->
+                    <!--<perCoreThreadCount>false</perCoreThreadCount>-->
                     <!-- Ignore test failures but continue with the build -->
-                    <testFailureIgnore>true</testFailureIgnore>
+                    <!--<testFailureIgnore>true</testFailureIgnore>-->
                     <!-- Include test classes matching the specified pattern -->
                     <includes>
                         <include>**/CukesRunner*.java</include>
