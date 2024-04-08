@@ -94,7 +94,7 @@ public class UsersPage extends BasePage {
     /**
      * Clicks the "Close" button.
      */
-    public void clickCloseButton(){
+    public void clickCloseButton() {
         BrowserUtils.waitFor(1);
         closeButton.click();
     }
@@ -294,7 +294,7 @@ public class UsersPage extends BasePage {
     /**
      * Clears the text from the full name input box.
      */
-    public void deleteFullName(){
+    public void deleteFullName() {
         BrowserUtils.waitFor(1);
         fullNameInputBox.clear();
     }
@@ -302,7 +302,7 @@ public class UsersPage extends BasePage {
     /**
      * Clears the text from the password input box.
      */
-    public void deletePassword(){
+    public void deletePassword() {
         BrowserUtils.waitFor(1);
         passwordInputBox.clear();
     }
@@ -310,7 +310,7 @@ public class UsersPage extends BasePage {
     /**
      * Clears the text from the email input box.
      */
-    public void deleteEmail(){
+    public void deleteEmail() {
         BrowserUtils.waitFor(1);
         emailInputBox.clear();
     }
@@ -318,7 +318,7 @@ public class UsersPage extends BasePage {
     /**
      * Clears the text from the start date input box.
      */
-    public void deleteStartDate(){
+    public void deleteStartDate() {
         BrowserUtils.waitFor(1);
         startDateInputBox.clear();
     }
@@ -326,7 +326,7 @@ public class UsersPage extends BasePage {
     /**
      * Clears the text from the end date input box.
      */
-    public void deleteEndDate(){
+    public void deleteEndDate() {
         BrowserUtils.waitFor(1);
         endDateInputBox.clear();
     }
@@ -334,7 +334,7 @@ public class UsersPage extends BasePage {
     /**
      * Clears the text from the address input box.
      */
-    public void deleteAddress(){
+    public void deleteAddress() {
         BrowserUtils.waitFor(1);
         addressInputBox.clear();
     }

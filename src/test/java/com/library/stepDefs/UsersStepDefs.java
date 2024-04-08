@@ -1,6 +1,7 @@
 package com.library.stepDefs;
 
 import com.library.pages.UsersPage;
+import com.library.utilities.BrowserUtils;
 import com.library.utilities.DataBaseUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -14,6 +15,8 @@ public class UsersStepDefs {
     String actualStatus;
     String actualMessage;
     String email;
+
+
 
     @Given("the user navigates to {string} page")
     public void the_user_navigates_to_page(String moduleName) {
@@ -47,6 +50,7 @@ public class UsersStepDefs {
     @Then("the user verifies that status information matches with database")
     public void the_user_verifies_that_status_information_matches_with_database() {
         DataBaseUtils.runQuery("select status from users where email='"+email+"'");
+        BrowserUtils.waitFor(2);
         actualStatus = DataBaseUtils.getFirstRowFirstColumn();
         Assert.assertEquals(expectedStatus,actualStatus);
     }
@@ -59,4 +63,5 @@ public class UsersStepDefs {
         usersPage.changeStatus(oldStatus,newStatus);
         usersPage.clickSaveChangesButton();
     }
+
 }
