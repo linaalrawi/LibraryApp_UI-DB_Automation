@@ -31,6 +31,7 @@ public class LoginStepDefs {
     @Then("the user verifies that the username matches with database")
     public void the_user_verifies_that_the_username_matches_with_database() {
         DataBaseUtils.runQuery("select full_name from users where email='"+email+"'");
+        BrowserUtils.waitFor(2);
         expectedUserName = DataBaseUtils.getFirstRowFirstColumn();
         Assert.assertEquals(expectedUserName,actualUserName);
     }
