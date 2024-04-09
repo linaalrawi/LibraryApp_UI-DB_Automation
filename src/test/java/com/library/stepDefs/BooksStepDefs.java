@@ -46,7 +46,7 @@ public class BooksStepDefs {
 
     @When("the user searches for {string} book")
     public void the_user_searches_for_book(String bookName) {
-
+        booksPage.searchBook(bookName);
     }
 
     @When("the user clicks edit book button")
