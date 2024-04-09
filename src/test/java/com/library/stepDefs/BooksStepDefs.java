@@ -6,16 +6,15 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 public class BooksStepDefs {
 
     BooksPage booksPage = new BooksPage();
-    List<String> actualBookCategories = new ArrayList<String>();
-    List<String> actualBookInformation = new ArrayList<String>();
-    List<String> expectedBookCategories = new ArrayList<String>();
+    List<String> actualBookCategories;
+    List<String> actualBookInformation;
+    List<String> expectedBookCategories;
 
     @When("the user gets all book categories in webpage")
     public void the_user_gets_all_book_categories_in_webpage() {
@@ -62,7 +61,7 @@ public class BooksStepDefs {
                 "where b.name='asdasdadsa'");
 
         List<String> expectedBookInformation = DataBaseUtils.getRowDataAsList(1);
-        Assert.assertEquals(expectedBookInformation,actualBookInformation);
+        Assert.assertEquals(expectedBookInformation, actualBookInformation);
     }
 
     @When("the user clicks to add book")

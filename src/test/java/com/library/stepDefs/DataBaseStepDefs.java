@@ -5,14 +5,13 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DataBaseStepDefs {
 
-    List<String> actualIds = new ArrayList<String>();
-    List<String> actualColumnNames = new ArrayList<String>();
-    List<String> expectedIds = new ArrayList<String>();
+    List<String> actualIds;
+    List<String> actualColumnNames;
+    List<String> expectedIds;
 
     @When("the user executes query to get all IDs from users")
     public void the_user_executes_query_to_get_all_i_ds_from_users() {

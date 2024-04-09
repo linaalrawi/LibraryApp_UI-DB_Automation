@@ -15,8 +15,6 @@ public class UsersStepDefs {
     String actualMessage;
     String email;
 
-
-
     @Given("the user navigates to {string} page")
     public void the_user_navigates_to_page(String moduleName) {
         usersPage.navigatePage(moduleName);
