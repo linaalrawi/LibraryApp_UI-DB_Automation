@@ -48,11 +48,15 @@ public class DashBoardStepDefs {
 
     @When("the user gets borrowed books number")
     public void the_user_gets_borrowed_books_number() {
-
+        actualBorrowedBooksCount = dashBoardPage.getBorrowedBooksCount();
     }
 
     @Then("the user verifies that the borrowed books number matches with DB")
     public void the_user_verifies_that_the_borrowed_books_number_matches_with_db() {
+        DataBaseUtils.runQuery("select count(*) from book_borrow\n" +
+                "where is_returned=0");
 
+        expectedBorrowedBooksCount = DataBaseUtils.getFirstRowFirstColumn();
+        Assert.assertEquals(expectedBorrowedBooksCount,actualBorrowedBooksCount);
     }
 }

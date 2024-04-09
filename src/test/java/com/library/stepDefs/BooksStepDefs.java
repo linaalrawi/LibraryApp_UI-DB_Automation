@@ -1,17 +1,25 @@
 package com.library.stepDefs;
 
 import com.library.pages.BooksPage;
+import com.library.utilities.DataBaseUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 public class BooksStepDefs {
 
     BooksPage booksPage = new BooksPage();
+    List<String> actualBookCategories = new ArrayList<String>();
+    List<String> actualBookInformation = new ArrayList<String>();
+    List<String> expectedBookCategories = new ArrayList<String>();
 
     @When("the user gets all book categories in webpage")
     public void the_user_gets_all_book_categories_in_webpage() {
-
+        actualBookCategories = booksPage.getAllBookCategories();
     }
 
     @Then("the user should be able to see following categories")
@@ -21,7 +29,9 @@ public class BooksStepDefs {
 
     @Then("the user verifies that book categories match with book categories table from db")
     public void the_user_verifies_that_book_categories_match_with_book_categories_table_from_db() {
-
+        DataBaseUtils.runQuery("select name from book_categories");
+        expectedBookCategories = DataBaseUtils.getColumnDataAsList(1);
+        Assert.assertEquals(expectedBookCategories, actualBookCategories);
     }
 
     @Then("the user verifies that book information matches with database for {string}")
@@ -41,12 +51,18 @@ public class BooksStepDefs {
 
     @When("the user clicks edit book button")
     public void the_user_clicks_edit_book_button() {
-
+        booksPage.clickEditBookButton();
+        actualBookInformation = booksPage.getBookInformation();
     }
 
     @Then("the user verifies that book information matches with Database")
     public void the_user_verifies_that_book_information_matches_with_database() {
+        DataBaseUtils.runQuery("select b.name, b.isbn, b.year, b.author, b.description,bc.name\n" +
+                "from books b join book_categories bc on b.book_category_id = bc.id\n" +
+                "where b.name='asdasdadsa'");
 
+        List<String> expectedBookInformation = DataBaseUtils.getRowDataAsList(1);
+        Assert.assertEquals(expectedBookInformation,actualBookInformation);
     }
 
     @When("the user clicks to add book")
