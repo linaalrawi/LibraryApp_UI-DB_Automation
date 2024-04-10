@@ -15,12 +15,12 @@ Feature: Books module
     Then the user verifies that "The book has been created." message is displayed
     And the user verifies that "<Book Name>" information matches with DB
     Examples:
-      | Book Name              | ISBN          | Year | Author      | Book Category      |
-      | Island Love            | 4234567891235 | 1959 | Emir Yazici | Romance            |
-      | Monster In The Lake    | 4334567891236 | 1962 | Emir Yazici | Horror             |
-      | 75 Reason To Be Single | 4434567891237 | 1967 | Emir Yazici | Short Story        |
-      | The Voyager 2091       | 4534567891238 | 1971 | Emir Yazici | Science Fiction    |
-      | No Money No Honey      | 4534567891239 | 1972 | Emir Yazici | Classic            |
-      | Blackberry Sky         | 4634567891230 | 1974 | Emir Yazici | Drama              |
-      | 8th Sense              | 4634567891231 | 1977 | Emir Yazici | Fantasy            |
-      | Third Encounter        | 4634567891232 | 1983 | Emir Yazici | Historical Fiction |
+      | Book Name                   | ISBN          | Year | Author      | Book Category      |
+      | Singing Birds In The Forest | 5234567891235 | 1949 | Emir Yazici | Romance            |
+      | Unknown Call                | 5334567891236 | 1952 | Emir Yazici | Horror             |
+      | 66 Reason To Be Single      | 5434567891237 | 1957 | Emir Yazici | Short Story        |
+      | The Voyager 3091            | 5534567891238 | 1961 | Emir Yazici | Science Fiction    |
+      | Once Upon A Time In Hawaii  | 5534567891239 | 1962 | Emir Yazici | Classic            |
+      | Black Friday Madness        | 5634567891230 | 1964 | Emir Yazici | Drama              |
+      | 9th Sense                   | 5634567891231 | 1967 | Emir Yazici | Fantasy            |
+      | Fourth Encounter            | 5634567891232 | 1973 | Emir Yazici | Historical Fiction |

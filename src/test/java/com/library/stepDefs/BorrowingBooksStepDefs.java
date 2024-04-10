@@ -32,8 +32,6 @@ public class BorrowingBooksStepDefs {
                 expectedBookName
         ));
 
-        System.out.println(expectedUserAndBorrowedBookInformation);
-
         DataBaseUtils.runQuery("select u.full_name,\n" +
                 "       b.name\n" +
                 "from books b\n" +
@@ -47,7 +45,6 @@ public class BorrowingBooksStepDefs {
                 "limit 1");
 
         actualUserAndBorrowedBookInformation = DataBaseUtils.getRowDataAsList(1);
-        System.out.println(actualUserAndBorrowedBookInformation);
 
         Assert.assertEquals(
                 expectedUserAndBorrowedBookInformation,

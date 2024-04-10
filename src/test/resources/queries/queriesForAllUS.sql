@@ -42,7 +42,7 @@ from books b
               on b.id = bb.book_id
          join users u on bb.user_id = u.id
 
-where u.full_name = 'Bao Rippin'
+where u.full_name = 'Ellan Robel MD'
   and b.name = 'Four Night In Honolulu'
   and bb.is_returned = 0
 limit 1;
