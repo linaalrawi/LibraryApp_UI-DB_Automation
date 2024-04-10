@@ -2,6 +2,7 @@ package com.library.pages;
 
 import com.library.utilities.BrowserUtils;
 import com.library.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -45,10 +46,29 @@ public class BorrowingBooksPage extends BasePage{
     private WebElement returnStatusCell;
 
     /**
-     * Clicks the "Return Book" button.
+     * Checks whether a book with the specified name is displayed.
+     *
+     * @param bookName The name of the book to check.
+     * @return `true` if the book is displayed, `false` otherwise.
      */
-    public void clickReturnBookButton(){
+    public boolean isBookShown(String bookName){
         BrowserUtils.waitFor(1);
+        WebElement bookInfoRow = Driver.getDriver().findElement(
+                By.xpath("//td[.='null']/..//td[.='"+bookName+"']/.."));
+
+        return bookInfoRow.isDisplayed();
+    }
+
+    /**
+     * Clicks the "Return Book" button by book name.
+     *
+     * @param bookName the book name that will return.
+     */
+    public void clickReturnButtonByBookName(String bookName) {
+        BrowserUtils.waitFor(1);
+        WebElement returnBookButton = Driver.getDriver().findElement(
+                By.xpath("//td[.='null']/..//td[.='" + bookName + "']/..//a")
+        );
         returnBookButton.click();
     }
 

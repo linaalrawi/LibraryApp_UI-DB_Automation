@@ -2,6 +2,7 @@ package com.library.pages;
 
 import com.library.utilities.BrowserUtils;
 import com.library.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -29,12 +30,6 @@ public class BooksPage extends BasePage {
 
     @FindBy(xpath = "//a[.=' Add Book']")
     private WebElement addBookButton;
-
-    @FindBy(xpath = "//a[.=' Edit Book']")
-    private WebElement editBookButton;
-
-    @FindBy(xpath = "//a[.=' Borrow Book']")
-    private WebElement BorrowBookButton;
 
     @FindBy(xpath = "//input[@type='search']")
     private WebElement searchBox;
@@ -89,10 +84,13 @@ public class BooksPage extends BasePage {
 
 
     /**
-     * Clicks the "Edit Book" button.
+     * Clicks the "Edit Book" button by book name.
+     * @param bookName the name of the book.
      */
-    public void clickEditBookButton() {
+    public void clickEditBookButtonByBookName(String bookName) {
         BrowserUtils.waitFor(1);
+        WebElement editBookButton = Driver.getDriver().findElement(
+                By.xpath("//td[.='"+bookName+"']/..//a"));
         editBookButton.click();
     }
 
@@ -105,11 +103,15 @@ public class BooksPage extends BasePage {
     }
 
     /**
-     * Clicks the "Borrow Book" button.
+     * Clicks the "Borrow Book" button by book name if any student borrowed that book yet.
+     * @param bookName the name of the book.
      */
-    public void clickBorrowBookButton() {
+    public void clickBorrowBookButtonByBookNameIfNotBorrowedByAnyOne(String bookName) {
         BrowserUtils.waitFor(1);
-        BorrowBookButton.click();
+        WebElement borrowBookButton = Driver.getDriver().findElement(
+                By.xpath("//td[.='']/..//td[.='"+bookName+"']/..//a")
+        );
+        borrowBookButton.click();
     }
 
     /**
@@ -176,6 +178,24 @@ public class BooksPage extends BasePage {
     public String getIsbnOnEditBook() {
         BrowserUtils.waitFor(1);
         return isbnInputBox.getAttribute("value");
+    }
+
+    /**
+     * Gets the information of the book on book management section.
+     *
+     * @return A list containing the book information.
+     */
+    public List<String> getBookInformationOnBookManagement(){
+        List<String> bookInformation = new ArrayList<>();
+        bookInformation.addAll(Arrays.asList(
+                getBookName(),
+                getISBN(),
+                getPublishedYear(),
+                getAuthorName(),
+                getCategory()
+        ));
+
+        return bookInformation;
     }
 
     /**
