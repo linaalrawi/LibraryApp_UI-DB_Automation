@@ -14,7 +14,7 @@ import org.openqa.selenium.TakesScreenshot;
 public class Hooks {
 
     /**
-     * Method to execute before each scenario.
+     * Method to execute before scenarios tagged with "ui".
      */
     @Before("@ui")
     public void setupMethod() {
@@ -23,7 +23,7 @@ public class Hooks {
     }
 
     /**
-     * Method to execute after each scenario.
+     * Method to execute after scenarios tagged with "@ui".
      *
      * @param scenario The scenario object representing the current scenario.
      */

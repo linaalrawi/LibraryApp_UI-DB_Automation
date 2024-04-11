@@ -1,6 +1,6 @@
 Feature: Book Category
 
-  @ui @wip
+  @ui
   Scenario: verify book categories with UI
     Given the user logged in as "librarian"
     When the user navigates to "Books" page
@@ -27,16 +27,16 @@ Feature: Book Category
       | Memoir                  |
       | Poetry                  |
 
-  @ui @db @wip
+  @ui @db
   Scenario: verify book categories with DB
     Given the user logged in as "librarian"
     When the user navigates to "Books" page
     And the user gets all book categories in webpage
     Then the user verifies that book categories match with book categories table from db
 
-  @ui @db @wip
+  @ui @db
   Scenario: Verify book information with db
     Given the user logged in as "librarian"
     And the user navigates to "Books" page
-    When the user searches for "Agile Testing" book
-    Then the user verifies that book information matches with database for "Agile Testing"
+    When the user searches for "Blackberry Sky" book
+    Then the user verifies that book information matches with database for "Blackberry Sky"
