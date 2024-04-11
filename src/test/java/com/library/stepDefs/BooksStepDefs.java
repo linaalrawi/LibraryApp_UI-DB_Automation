@@ -8,7 +8,6 @@ import org.junit.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class BooksStepDefs {
 
@@ -26,8 +25,8 @@ public class BooksStepDefs {
     }
 
     @Then("the user should be able to see following categories")
-    public void the_user_should_be_able_to_see_following_categories(Set<String> categories) {
-
+    public void the_user_should_be_able_to_see_following_categories(List<String> expectedBookCategories) {
+        Assert.assertEquals(expectedBookCategories,actualBookCategories);
     }
 
     @Then("the user verifies that book categories match with book categories table from db")
@@ -39,12 +38,17 @@ public class BooksStepDefs {
 
     @Then("the user verifies that book information matches with database for {string}")
     public void the_user_verifies_that_book_information_matches_with_the_database_for(String bookName) {
+        expectedBookInformation = booksPage.getBookInformationOnBookManagement();
 
-    }
+        DataBaseUtils.runQuery("select b.name, b.isbn, b.year, b.author, bc.name\n" +
+                "from books b\n" +
+                "         join book_categories bc\n" +
+                "              on b.book_category_id = bc.id\n" +
+                "where b.name = '"+bookName+"'\n" +
+                "limit 1");
 
-    @When("the user clicks book categories")
-    public void the_user_clicks_book_categories() {
-
+        actualBookInformation = DataBaseUtils.getRowDataAsList(1);
+        Assert.assertEquals(expectedBookInformation,actualBookInformation);
     }
 
     @When("the user searches for {string} book")
